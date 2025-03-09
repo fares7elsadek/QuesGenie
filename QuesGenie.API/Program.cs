@@ -19,6 +19,7 @@ try
     
 
     var app = builder.Build();
+    
     app.UseErrorHandlingMiddleware();
     await SeedDatabaseAsync(app);
     

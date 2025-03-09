@@ -8,105 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Middlewares/ErrorHandlingMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/QuesGenie.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/QuesGenie.API.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ConfirmEmail/ConfirmEmailCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ConfirmEmail/ConfirmEmailCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/CreateRefreshToken/CreateRefreshTokeCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/CreateRefreshToken/CreateRefreshTokenCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ForgetPassword/ForgetPasswordCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ForgetPassword/ForgetPasswordCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ForgetPassword/ForgetPasswordCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/LoginUser/LoginUserCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/LoginUser/LoginUserCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/LoginUser/LoginUserCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/RegisterUser/RegisterUserCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/RegisterUser/RegisterUserCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/RegisterUser/RegisterUserCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResendConfirmationEmail/ResendConfirmationEmailCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResendConfirmationEmail/ResendConfirmationEmailCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResendConfirmationEmail/ResendConfirmationEmailCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResetPassword/ResetPasswordCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResetPassword/ResetPasswordCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Commands/ResetPassword/ResetPasswordCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Dtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Authentication/Dtos/UserProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Extensions/ServiceCollectionExtenstions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Services/AuthService/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Services/AuthService/IAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Services/Email/EmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Answers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/ApplicationUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Documents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/MatchingPairs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/McqOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Questions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/QuestionsSets.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/QuizResponses.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Quizzes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/RefreshToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Submissions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Enums/DocumentType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Enums/QuestionType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Enums/QuestionsStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Exceptions/CustomException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Exceptions/NotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/ApiResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/AuthResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/EmailOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/EmailTemplates.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/JwtOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Helpers/UserRoles.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IAnswersRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IApplicationUserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IDocumentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IMatchingPairsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IMcqOptionsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuestionSetRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuestionsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuizResponsesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuizzesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/ISubmissionRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/AppDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/AnswersConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/ApplicationUserConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/DocumentsConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/MCQOptionsConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/MatchingPairsConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuestionSetConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuestionsConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuizConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuizResponsesConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/SubmissionConfigurations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/AnswersRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/ApplicationUserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/DocumentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/MatchingPairsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/McqOptionsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuestionsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuestionsSetRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuizResponsesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuizzesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/Repository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/SubmissionRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Seeders/IQuesGenieSeeder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Seeders/QuesGenieSeeder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.sln" afterDir="false" />
-    </list>
+    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +37,7 @@
     ".NET Launch Settings Profile.QuesGenie.API: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -184,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1741472946675</updated>
-      <workItem from="1741472949314" duration="26816000" />
+      <workItem from="1741472949314" duration="27091000" />
     </task>
     <servers />
   </component>
@@ -192,6 +94,17 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

@@ -10,5 +10,6 @@ public static class ServiceCollectionExtensions
     {
         services.Configure<JwtOptions>(configuration.GetSection("JWT"));
         services.Configure<EmailOptions>(configuration.GetSection("email"));
+        services.Configure<BlobStorageOptions>(configuration.GetSection("BlobStorage"));
     }
 }

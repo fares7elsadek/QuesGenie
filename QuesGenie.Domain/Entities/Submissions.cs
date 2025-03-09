@@ -6,7 +6,7 @@ public class Submissions
 {
     public Submissions()
     {
-        Documents = new HashSet<Documents>();
+        Documents = new List<Documents>();
         QuestionSets = new HashSet<QuestionsSets>();
     }
     public string SubmissionId { get; set; } = default!;
@@ -14,6 +14,6 @@ public class Submissions
     public ApplicationUser User { get; set; } = default!;
     public DateTime SubmissionDate { get; set; } 
     public string? SampleQuestions { get; set; } 
-    public ICollection<Documents> Documents { get; set; }
+    public List<Documents> Documents { get; set; }
     public ICollection<QuestionsSets> QuestionSets { get; set; }
 }

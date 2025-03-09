@@ -11,5 +11,6 @@ public class Documents
     public DateTime UploadedAt { get; set; } 
     public string? Content { get; set; } 
     public string? FileUrl { get; set; } 
+    public string? FileName { get; set; }
     public QuestionsSets QuestionSet { get; set; } = default!;
 }

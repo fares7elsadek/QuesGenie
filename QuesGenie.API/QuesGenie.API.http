@@ -1,0 +1,6 @@
+@QuesGenie.API_HostAddress = http://localhost:5150
+
+GET {{QuesGenie.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

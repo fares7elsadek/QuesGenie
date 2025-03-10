@@ -8,7 +8,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="" />
+    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/FillTheBlankQuestions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/MatchingQuestions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/McqQuestions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/TrueFalseQuestions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IFillTheBlankQuestionsRepsitory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IMatchingQuestionsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IMcqQuestionsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/ITrueFalseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/FillTheBlankQuestionsConfigurations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/MatchingQuestionsConfigurations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/McqQuestionsConfigurations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/FillTheBlankRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/MatchingQuestionsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/McqQuestiosnsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/TrueFalseQuestionsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Answers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Entities/MatchingPairs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/MatchingPairs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Entities/McqOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/McqOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Questions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Questions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Enums/QuestionType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IAnswersRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuestionsRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/AnswersConfigurations.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuestionsConfigurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuestionsConfigurations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/AnswersRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuestionsRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/UnitOfWork.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,20 +64,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.QuesGenie.API: http.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.QuesGenie.API: http.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.QuesGenie.API: http">
     <configuration name="QuesGenie.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/QuesGenie.API/QuesGenie.API.csproj" />
@@ -88,6 +120,7 @@
       <updated>1741472946675</updated>
       <workItem from="1741472949314" duration="27091000" />
       <workItem from="1741532825739" duration="15804000" />
+      <workItem from="1741635303576" duration="5263000" />
     </task>
     <servers />
   </component>

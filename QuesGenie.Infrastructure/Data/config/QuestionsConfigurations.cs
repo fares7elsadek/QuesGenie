@@ -21,25 +21,8 @@ public class QuestionsConfigurations:IEntityTypeConfiguration<Questions>
         
         builder.Property(x => x.PageRange)
             .HasColumnType("varchar(100)");
-        
-        builder.Property(x => x.QuestionType)
-            .HasConversion(x => x.ToString(),
-                x => (QuestionType)Enum.Parse(typeof(QuestionType), x));
-        
-        builder.HasMany(x => x.MCQOptions)
-            .WithOne(x => x.Question)
-            .HasForeignKey(x => x.QuestionId)
-            .OnDelete(DeleteBehavior.Cascade);
-        
-        builder.HasMany(x => x.Answers)
-            .WithOne(x => x.Question)
-            .HasForeignKey(x => x.QuestionId)
-            .OnDelete(DeleteBehavior.Cascade);
-        
-        builder.HasMany(x => x.MatchingPairs)
-            .WithOne(x => x.Question)
-            .HasForeignKey(x => x.QuestionId)
-            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.UseTpcMappingStrategy();
         
         builder.HasMany(x => x.QuizResponses)
             .WithOne(x => x.Question)

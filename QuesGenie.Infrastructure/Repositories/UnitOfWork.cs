@@ -8,28 +8,31 @@ namespace QuesGenie.Infrastructure.Repositories;
 
 public class UnitOfWork:IUnitOfWork
 {
-    
-    public IAnswersRepository Answers { get; }
     public IApplicationUserRepository ApplicationUser { get; }
     public IDocumentRepository Documents { get; }
     public IMatchingPairsRepository MatchingPairs { get; }
     public IMcqOptionsRepository McqOptions { get; }
-    public IQuestionsRepository Questions { get; }
     public IQuestionSetRepository QuestionSet { get; }
     public IQuizzesRepository Quizzes { get; }
     public IQuizResponsesRepository QuizResponses { get; }
     public ISubmissionRepository Submission { get; }
+    public IMatchingQuestionsRepository MatchingQuestions { get; }
+    public IMcqQuestionsRepository McqQuestions { get; }
+    public IFillTheBlankQuestionsRepsitory FillTheBlankQuestions { get; }
+    public ITrueFalseRepository TrueFalse { get; }
     private readonly AppDbContext _db;
     
     public UnitOfWork(AppDbContext db)
     {
         _db = db;
-        Answers = new AnswersRepository(_db);
         ApplicationUser = new ApplicationUserRepository(_db);
         Documents = new DocumentRepository(_db);
         MatchingPairs = new MatchingPairsRepository(_db);
         McqOptions = new McqOptionsRepository(_db);
-        Questions = new QuestionsRepository(_db);
+        MatchingQuestions = new MatchingQuestionsRepository(_db);
+        McqQuestions = new McqQuestiosnsRepository(_db);
+        FillTheBlankQuestions = new FillTheBlankRepository(_db);
+        TrueFalse = new TrueFalseQuestionsRepository(_db);
         QuestionSet = new QuestionsSetRepository(_db);
         Quizzes = new QuizzesRepository(_db);
         QuizResponses = new QuizResponsesRepository(_db);

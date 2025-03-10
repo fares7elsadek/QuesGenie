@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using QuesGenie.Domain.Entities;
 using QuesGenie.Infrastructure.Data.config;
@@ -8,8 +10,10 @@ namespace QuesGenie.Infrastructure.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options)
     :IdentityDbContext<ApplicationUser>(options)
 {
-    public DbSet<Answers> Answers { get; set; }
-    public DbSet<Questions> Questions { get; set; }
+    public DbSet<McqQuestions> McqQuestions { get; set; }
+    public DbSet<MatchingQuestions> MatchingQuestions { get; set; }
+    public DbSet<FillTheBlankQuestions> FillTheBlank { get; set; }
+    public DbSet<TrueFalseQuestions> TrueFalseQuestions { get; set; }
     public DbSet<Submissions> Submissions { get; set; }
     public DbSet<Documents> Documents { get; set; }
     public DbSet<MatchingPairs> MatchingPairs { get; set; }
@@ -21,6 +25,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.ApplyConfigurationsFromAssembly(typeof(AnswersConfigurations).Assembly);
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        builder.Entity<ApplicationUser>().ToTable("Users");
+        builder.Entity<IdentityRole>().ToTable("Roles");
+        builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+        builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+        builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+        builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+        builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
     }
 }

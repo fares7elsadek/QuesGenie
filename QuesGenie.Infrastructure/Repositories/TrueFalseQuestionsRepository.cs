@@ -4,7 +4,7 @@ using QuesGenie.Infrastructure.Data;
 
 namespace QuesGenie.Infrastructure.Repositories;
 
-public class AnswersRepository(AppDbContext db):Repository<Answers>(db), IAnswersRepository
+public class TrueFalseQuestionsRepository(AppDbContext db):Repository<TrueFalseQuestions>(db),ITrueFalseRepository
 {
     
 }

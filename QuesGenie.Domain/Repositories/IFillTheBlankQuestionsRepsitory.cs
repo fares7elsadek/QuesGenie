@@ -2,7 +2,7 @@
 
 namespace QuesGenie.Domain.Repositories;
 
-public interface IQuestionsRepository:IRepository<Questions>
+public interface IFillTheBlankQuestionsRepsitory:IRepository<FillTheBlankQuestions>
 {
     
 }

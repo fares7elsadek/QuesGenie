@@ -4,7 +4,7 @@ using QuesGenie.Infrastructure.Data;
 
 namespace QuesGenie.Infrastructure.Repositories;
 
-public class QuestionsRepository(AppDbContext db):Repository<Questions>(db),IQuestionsRepository
+public class MatchingQuestionsRepository(AppDbContext db):Repository<MatchingQuestions>(db),IMatchingQuestionsRepository
 {
     
 }

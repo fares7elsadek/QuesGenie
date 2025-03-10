@@ -2,7 +2,7 @@
 
 namespace QuesGenie.Domain.Repositories;
 
-public interface IAnswersRepository:IRepository<Answers>
+public interface IMatchingQuestionsRepository:IRepository<MatchingQuestions>
 {
     
 }

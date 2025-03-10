@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using QuesGenie.Domain.Entities;
+using QuesGenie.Domain.Enums;
 
 namespace QuesGenie.Infrastructure.Data.config;
 
@@ -20,6 +21,10 @@ public class DocumentsConfigurations:IEntityTypeConfiguration<Documents>
         
         builder.Property(x => x.Content)
             .HasColumnType("text");
+        
+        builder.Property(x => x.DocumentType)
+            .HasConversion(x => x.ToString(),
+                x => (DocumentType)Enum.Parse(typeof(DocumentType), x));
         
         builder.HasOne(x => x.QuestionSet)
             .WithOne(x => x.Document)

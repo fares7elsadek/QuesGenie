@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using QuesGenie.Domain.Entities;
+using QuesGenie.Domain.Enums;
 
 namespace QuesGenie.Infrastructure.Data.config;
 
@@ -20,6 +21,10 @@ public class QuestionsConfigurations:IEntityTypeConfiguration<Questions>
         
         builder.Property(x => x.PageRange)
             .HasColumnType("varchar(100)");
+        
+        builder.Property(x => x.QuestionType)
+            .HasConversion(x => x.ToString(),
+                x => (QuestionType)Enum.Parse(typeof(QuestionType), x));
         
         builder.HasMany(x => x.MCQOptions)
             .WithOne(x => x.Question)

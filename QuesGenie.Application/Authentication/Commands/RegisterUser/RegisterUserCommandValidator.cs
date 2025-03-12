@@ -7,10 +7,10 @@ public class RegisterUserCommandValidator: AbstractValidator<RegisterUserCommand
     public RegisterUserCommandValidator()
     {
         RuleFor(d => d.FirstName)
-            .Length(5, 100).WithMessage("First Name must be between 5 and 100 characters.");
+            .Length(2, 100).WithMessage("First Name must be between 5 and 100 characters.");
 
         RuleFor(d => d.LastName)
-            .Length(5, 100).WithMessage("Last Name must be between 5 and 100 characters.");
+            .Length(2, 100).WithMessage("Last Name must be between 5 and 100 characters.");
 
         RuleFor(d => d.UserName)
             .Length(3, 50).WithMessage("Username must be between 3 and 50 characters.");

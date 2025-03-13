@@ -9,7 +9,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/FillTheBlankAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/GetQuestionSetAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/MatchingPairsAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/MatchingQuestionsAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/McqOptionsAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/McqQuestionsAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/FillTheBlankAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/MatchingAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/MatchingPairsAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/McqOptionsAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/McqQuestionsAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/Profiles/TrueFalseAnswerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithAnswer/TrueFalseAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/FillTheBlankDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/GetQuestionSetDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/MatchingPairsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/MatchingQuestionsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/McqOptionsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/McqQuestionsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/FillTheblankProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/MatchingPairsProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/MatchingQuestionsProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/McqOptionsProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/McqQuestionsProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/Profiles/TrueFalseQuestionsProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Dtos/QuestionsDtoWithoutAnswer/TrueFalseQuestionsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Queries/GetQuestionsByQuestionSetId/GetQuestionsByQuestionSetIdQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Queries/GetQuestionsByQuestionSetId/GetQuestionsByQuestionSetIdQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Queries/GetQuestionsByQuestionSetIdWithAnswers/GetQuestionsByQuestionSetIdWithAnswersQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Queries/GetQuestionsByQuestionSetIdWithAnswers/GetQuestionsByQuestionSetIdWithAnswersQueryHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuestionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuestionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuestionSetRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Repositories/IQuestionSetRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuestionsSetRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Repositories/QuestionsSetRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +125,8 @@
       <workItem from="1741532825739" duration="15804000" />
       <workItem from="1741635303576" duration="5973000" />
       <workItem from="1741648957004" duration="2685000" />
+      <workItem from="1741737684003" duration="703000" />
+      <workItem from="1741834409633" duration="8891000" />
     </task>
     <servers />
   </component>

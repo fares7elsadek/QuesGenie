@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuesGenie.Application.GenerateQuestions.Commands.SubmitDocuments;
+using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsByQuestionSetId;
+using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsByQuestionSetIdWithAnswers;
 using QuesGenie.Domain.Helpers;
 
 namespace QuesGenie.API.Controllers;
@@ -21,7 +23,6 @@ public class QuestionsController:ControllerBase
     
     [HttpPost("generate")]
     [Authorize]
-    [Consumes("multipart/form-data")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +37,34 @@ public class QuestionsController:ControllerBase
             Status = "Done",
             SubmissionId = submissionId
         };
+        return Ok(apiResponse);
+    }
+    
+    [HttpPost("{questionsetId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<ApiResponse>> GetQuestionSet(string questionsetId)
+    {
+        var result = await _mediator.Send(new GetQuestionsByQuestionSetIdQuery(questionsetId));
+        apiResponse.IsSuccess = true;
+        apiResponse.Errors = null;
+        apiResponse.StatusCode = HttpStatusCode.OK;
+        apiResponse.Result = result;
+        return Ok(apiResponse);
+    }
+    
+    [HttpPost("{questionsetId}/answers")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<ApiResponse>> GetQuestionSetAnswers(string questionsetId)
+    {
+        var result = await _mediator.Send(new GetQuestionsByQuestionSetIdWithAnswersQuery(questionsetId));
+        apiResponse.IsSuccess = true;
+        apiResponse.Errors = null;
+        apiResponse.StatusCode = HttpStatusCode.OK;
+        apiResponse.Result = result;
         return Ok(apiResponse);
     }
 }

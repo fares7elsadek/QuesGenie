@@ -15,9 +15,11 @@ public class GetQuestionsByQuestionSetIdWithAnswersQueryHandler(IUnitOfWork unit
             matchingQuestions,
             fillTheBlankQuestions,
             trueFalseQuestions
-            , status) = await unitOfWork.QuestionSet.GetQuestionsByQuestionSetId(request.questionSetId);
+            , status) = await unitOfWork.QuestionSet.GetQuestionsByQuestionSetId(request.questionSetId,
+            cancellationToken);
         
         var questionSetDto = new GetQuestionSetAnswerDto();
+        questionSetDto.QuestionSetId = request.questionSetId;
         questionSetDto.Status = status;
         questionSetDto.MatchingQuestions = mapper.Map<List<MatchingQuestionsAnswerDto>>(matchingQuestions);
         questionSetDto.McqQuestions = mapper.Map<List<McqQuestionsAnswerDto>>(mcqQuestions);

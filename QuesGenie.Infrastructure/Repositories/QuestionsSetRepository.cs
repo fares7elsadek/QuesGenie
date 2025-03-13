@@ -9,25 +9,40 @@ namespace QuesGenie.Infrastructure.Repositories;
 
 public class QuestionsSetRepository(AppDbContext db):Repository<QuestionsSets>(db),IQuestionSetRepository
 {
-    public async Task<(List<McqQuestions>, List<MatchingQuestions>, List<FillTheBlankQuestions>, List<TrueFalseQuestions>, string)> GetQuestionsByQuestionSetId(string questionSetId)
+    public async Task<(List<McqQuestions>, List<MatchingQuestions>, List<FillTheBlankQuestions>, List<TrueFalseQuestions>, string)> 
+        GetQuestionsByQuestionSetId(string questionSetId, CancellationToken cancellationToken = default)
     {
-        var questionSet = await db.QuestionsSets.
-            Include(
-                x => x.Questions)
-            .ThenInclude(q => (q as McqQuestions).McqOptions)
-            .Include(x => x.Questions)
-            .ThenInclude(q => (q as MatchingQuestions).MatchingPairs)
-            .Where(x => x.QuestionSetId == questionSetId)
-            .FirstOrDefaultAsync();
+        var questionSet = await db.QuestionsSets
+            .Include(qs => qs.Questions)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(qs => qs.QuestionSetId == questionSetId, cancellationToken);
+    
+        if (questionSet is null)
+            throw new NotFoundException(nameof(QuestionsSets), questionSetId);
+
         
-        if(questionSet is null)
-            throw new NotFoundException(nameof(questionSet), questionSetId);
-        
-        var mcqQuestions = questionSet.Questions.OfType<McqQuestions>().ToList();
-        var fillTheBlankQuestions = questionSet.Questions.OfType<FillTheBlankQuestions>().ToList();
-        var trueFalseQuestions = questionSet.Questions.OfType<TrueFalseQuestions>().ToList();
-        var matchingQuestions = questionSet.Questions.OfType<MatchingQuestions>().ToList();
-        
-        return (mcqQuestions, matchingQuestions, fillTheBlankQuestions, trueFalseQuestions,questionSet.Status.ToString());
+        var mcqQuestions = await db.McqQuestions
+            .Where(q => q.QuestionSetId == questionSetId)
+            .Include(q => q.McqOptions)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    
+        var fillTheBlankQuestions = await db.FillTheBlank
+            .Where(q => q.QuestionSetId == questionSetId)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+
+        var trueFalseQuestions = await db.TrueFalseQuestions
+            .Where(q => q.QuestionSetId == questionSetId)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+
+        var matchingQuestions = await db.MatchingQuestions
+            .Where(q => q.QuestionSetId == questionSetId)
+            .Include(q => q.MatchingPairs)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+
+        return (mcqQuestions, matchingQuestions, fillTheBlankQuestions, trueFalseQuestions, questionSet.Status.ToString());
     }
 }

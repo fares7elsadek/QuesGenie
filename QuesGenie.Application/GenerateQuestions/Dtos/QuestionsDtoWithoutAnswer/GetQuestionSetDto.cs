@@ -13,11 +13,11 @@ public class GetQuestionSetDto
         TrueFalseQuestions= new List<TrueFalseQuestionsDto>();
         FillTheBlanks = new List<FillTheBlankDto>();
     }
+    public string QuestionSetId { get; set; } = default!;
     public List<McqQuestionsDto> McqQuestions { get; set; }
     public List<MatchingQuestionsDto> MatchingQuestions { get; set; }
     public List<TrueFalseQuestionsDto> TrueFalseQuestions { get; set; }
     public List<FillTheBlankDto> FillTheBlanks { get; set; }
-    
     public string Status { get; set; }
 
 }

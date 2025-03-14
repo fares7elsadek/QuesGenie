@@ -28,7 +28,7 @@ public class QuestionsController:ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult> RegisterUser([FromForm] SubmitDocumentCommand command)
+    public async Task<ActionResult> GenerateQuestions([FromForm] SubmitDocumentCommand command)
     {
         var submissionId = await _mediator.Send(command);
         apiResponse.IsSuccess = true;
@@ -42,7 +42,7 @@ public class QuestionsController:ControllerBase
         return Ok(apiResponse);
     }
     
-    [HttpPost("{questionsetId}")]
+    [HttpGet("{questionsetId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -56,7 +56,7 @@ public class QuestionsController:ControllerBase
         return Ok(apiResponse);
     }
     
-    [HttpPost("{questionsetId}/answers")]
+    [HttpGet("{questionsetId}/answers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -70,7 +70,7 @@ public class QuestionsController:ControllerBase
         return Ok(apiResponse);
     }
     
-    [HttpPost("submission/{submissionId}")]
+    [HttpGet("submission/{submissionId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -84,7 +84,7 @@ public class QuestionsController:ControllerBase
         return Ok(apiResponse);
     }
     
-    [HttpPost("submission/{submissionId}/answers")]
+    [HttpGet("submission/{submissionId}/answers")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

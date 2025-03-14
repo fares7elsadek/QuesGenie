@@ -1,4 +1,6 @@
-﻿namespace QuesGenie.Domain.Entities;
+﻿using QuesGenie.Domain.Enums;
+
+namespace QuesGenie.Domain.Entities;
 
 public class Quizzes
 {
@@ -14,4 +16,5 @@ public class Quizzes
     public int Score { get; set; }
     public DateTime SubmitDate { get; set; }
     public ICollection<QuizResponses> Responses { get; set; } 
+    public QuizStatus Status { get; set; }
 }

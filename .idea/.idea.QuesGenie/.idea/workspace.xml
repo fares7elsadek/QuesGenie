@@ -9,15 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuizController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Commands/StartQuiz/StartQuizCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Commands/StartQuiz/StartQuizCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/QuizDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuesGenie.Domain/Enums/QuizStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Commands/SubmitQuiz/SubmitQuizCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Commands/SubmitQuiz/SubmitQuizCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Commands/SubmitQuiz/SubmitQuizCommandValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/FillTheBlankQuizAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/MatchingPairsQuizAnswer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/MatchingQuizAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/McqQuizAnswerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/SubmitQuizResponseDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuesGenie.Application/Quiz/Dtos/TrueFalseQuizAnswerDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuestionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuestionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuizController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.API/Controllers/QuizController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Quizzes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Domain/Entities/Quizzes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuizConfigurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Data/config/QuizConfigurations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QuesGenie.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuesGenie.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +107,8 @@
       <workItem from="1741737684003" duration="703000" />
       <workItem from="1741834409633" duration="9025000" />
       <workItem from="1741887955493" duration="3446000" />
-      <workItem from="1741923067765" duration="1589000" />
+      <workItem from="1741923067765" duration="1826000" />
+      <workItem from="1741973002837" duration="8334000" />
     </task>
     <servers />
   </component>

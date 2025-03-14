@@ -13,7 +13,7 @@ public class Quizzes
     public QuestionsSets QuestionSet { get; set; } = default!;
     public string UserId { get; set; } = default!;
     public ApplicationUser User { get; set; } = default!;
-    public int Score { get; set; }
+    public double Score { get; set; }
     public DateTime SubmitDate { get; set; }
     public ICollection<QuizResponses> Responses { get; set; } 
     public QuizStatus Status { get; set; }

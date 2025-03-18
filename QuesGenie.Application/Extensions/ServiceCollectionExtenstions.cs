@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using QuesGenie.Application.Services.AuthService;
 using QuesGenie.Application.Services.Email;
 using QuesGenie.Application.Services.Files;
+using QuesGenie.Application.Services.Pdf;
 using QuesGenie.Application.Services.User;
 using QuesGenie.Domain.Entities;
 using Serilog;
@@ -42,6 +43,7 @@ public static class ServiceCollectionExtenstions
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IUserContext, UserContext>();
         services.AddHttpContextAccessor();
+        services.AddScoped<IPdfService, PdfService>();
     }
     
     public static void SeriLogConfigurations(this IHostBuilder host)

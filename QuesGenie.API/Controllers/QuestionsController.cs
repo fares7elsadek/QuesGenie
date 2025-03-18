@@ -7,6 +7,7 @@ using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsByQuestionSetI
 using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsByQuestionSetIdWithAnswers;
 using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsBySubmissionId;
 using QuesGenie.Application.GenerateQuestions.Queries.GetQuestionsBySubmissionIdWithAnswers;
+using QuesGenie.Application.Services.Pdf;
 using QuesGenie.Domain.Helpers;
 
 namespace QuesGenie.API.Controllers;
@@ -17,10 +18,12 @@ public class QuestionsController:ControllerBase
 {
     private readonly IMediator _mediator;
     private ApiResponse apiResponse;
-    public QuestionsController(IMediator mediator)
+    private IPdfService _pdfService;
+    public QuestionsController(IMediator mediator, IPdfService pdfService)
     {
         _mediator = mediator;
         apiResponse = new ApiResponse();
+        _pdfService = pdfService;
     }
     
     [HttpPost("generate")]
@@ -96,5 +99,16 @@ public class QuestionsController:ControllerBase
         apiResponse.StatusCode = HttpStatusCode.OK;
         apiResponse.Result = result;
         return Ok(apiResponse);
+    }
+    
+    [HttpGet("submission/{submissionId}/pdf")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult> DownloadQuestionsAsPdf(string submissionId)
+    {
+        var dto = await _mediator.Send(new GetQuestionsBySubmissionIdWithAnswersQuery(submissionId));
+        byte[] pdfBytes = _pdfService.GenerateQuestionsPdf(dto);
+        return File(pdfBytes, "application/pdf", $"Questions_{submissionId}.pdf");
     }
 }

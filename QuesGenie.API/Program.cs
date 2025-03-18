@@ -31,6 +31,7 @@ try
     
     app.UseHttpsRedirection();
     app.UseCors("QuesGenie");
+    app.UseStaticFiles();
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();

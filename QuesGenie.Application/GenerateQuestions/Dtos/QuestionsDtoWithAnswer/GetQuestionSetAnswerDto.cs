@@ -9,6 +9,7 @@ public class GetQuestionSetAnswerDto
         TrueFalseQuestions= new List<TrueFalseAnswerDto>();
         FillTheBlanks = new List<FillTheBlankAnswerDto>();
     }
+    public string DocumentId { get; set; }= default!;
     public string QuestionSetId { get; set; } = default!;
     public List<McqQuestionsAnswerDto> McqQuestions { get; set; }
     public List<MatchingQuestionsAnswerDto> MatchingQuestions { get; set; }

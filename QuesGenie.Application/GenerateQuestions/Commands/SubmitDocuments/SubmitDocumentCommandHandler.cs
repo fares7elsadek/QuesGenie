@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using QuesGenie.Application.GenerateQuestions.Dtos;
 using QuesGenie.Application.Services.Files;
+using QuesGenie.Application.Services.SyncCommunication;
 using QuesGenie.Application.Services.User;
 using QuesGenie.Domain.Entities;
 using QuesGenie.Domain.Enums;
@@ -8,7 +10,7 @@ using QuesGenie.Domain.Repositories;
 namespace QuesGenie.Application.GenerateQuestions.Commands.SubmitDocuments;
 
 public class SubmitDocumentCommandHandler(IFileService fileService,
-    IUnitOfWork unitOfWork,IUserContext userContext):IRequestHandler<SubmitDocumentCommand,string>
+    IUnitOfWork unitOfWork,IUserContext userContext,IQuestionHttpClient httpClient):IRequestHandler<SubmitDocumentCommand,string>
 {
     public async Task<string> Handle(SubmitDocumentCommand request, CancellationToken cancellationToken)
     {
@@ -26,20 +28,21 @@ public class SubmitDocumentCommandHandler(IFileService fileService,
             Documents = new List<Documents>() 
         };
 
+        var requestDto = new QuestionRequestDto();
+        requestDto.submissionId= submissionId;
         var documentTasks = request.SubmissionDocuments.Select(async docs =>
         {
             var (url, filename) = await fileService.SaveFileAsync(docs.File);
+            var documentId = Guid.NewGuid().ToString();
+            var documentDto = new DocumentsDto(documentId, url, docs.DocumentType);
+            requestDto.documents.Add(documentDto);
             return new  Documents
             {
+                DocumentId = documentId,
                 DocumentType = GetDocumentType(docs.DocumentType),
                 FileName = filename,
                 FileUrl = url,
-                Content = docs.Content ?? string.Empty,
-                QuestionSet = new QuestionsSets
-                {
-                    Status = QuestionsStatus.PROCESSING,
-                    SubmissionId = submissionId,
-                },
+                Content = docs.Content ?? string.Empty
             };
         });
 
@@ -48,9 +51,7 @@ public class SubmitDocumentCommandHandler(IFileService fileService,
         
         await unitOfWork.Submission.AddAsync(newSubmission);
         await unitOfWork.SaveAsync();
-        
-        // TODO: Publish documents to message queue for question generation (Ahemd Mubarak)
-
+        await httpClient.GenerateQuestion(requestDto);
         return submissionId;
     }
     

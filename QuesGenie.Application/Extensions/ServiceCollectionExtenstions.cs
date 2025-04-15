@@ -8,6 +8,7 @@ using QuesGenie.Application.Services.AuthService;
 using QuesGenie.Application.Services.Email;
 using QuesGenie.Application.Services.Files;
 using QuesGenie.Application.Services.Pdf;
+using QuesGenie.Application.Services.SyncCommunication;
 using QuesGenie.Application.Services.User;
 using QuesGenie.Domain.Entities;
 using Serilog;
@@ -44,6 +45,11 @@ public static class ServiceCollectionExtenstions
         services.AddScoped<IUserContext, UserContext>();
         services.AddHttpContextAccessor();
         services.AddScoped<IPdfService, PdfService>();
+        services.AddHttpClient<IQuestionHttpClient, QuestionHttpClient>(client =>
+        {
+            client.Timeout = TimeSpan.FromMinutes(10);
+        });
+        
     }
     
     public static void SeriLogConfigurations(this IHostBuilder host)

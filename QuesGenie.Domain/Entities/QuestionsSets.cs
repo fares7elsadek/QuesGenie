@@ -6,7 +6,7 @@ public class QuestionsSets
 {
     public QuestionsSets()
     {
-        Questions = new HashSet<Questions>();
+        Questions = new List<Questions>();
         Quizzes = new HashSet<Quizzes>();
     }
     public string QuestionSetId { get; set; } = default!;
@@ -16,6 +16,6 @@ public class QuestionsSets
     public DateTime GeneratedAt { get; set; }
     public string DocumentId { get; set; } = default!;
     public Documents Document { get; set; } = default!;
-    public ICollection<Questions> Questions { get; set; }
+    public List<Questions> Questions { get; set; }
     public ICollection<Quizzes> Quizzes { get; set; }
 }

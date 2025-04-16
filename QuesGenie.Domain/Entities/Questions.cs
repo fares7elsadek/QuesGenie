@@ -15,6 +15,6 @@ public abstract class Questions
     public DateTime CreatedAt { get; set; }
     public string DocumentId { get; set; } = default!;
     public Documents Document { get; set; } = default!;
-    public string PageRange { get; set; } = default!;
+    public string? PageRange { get; set; } = default!;
     public ICollection<QuizResponses> QuizResponses { get; set; }
 }

@@ -24,7 +24,7 @@ public class QuestionHttpClient(HttpClient httpClient,IUnitOfWork unitOfWork,
     private async Task<GenerateQuestionsDto> FetchGeneratedQuestionsAsync(QuestionRequestDto dto)
     {
         var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync("http://40.82.160.119/question-generation", content);
+        var response = await httpClient.PostAsync("http://20.151.232.233/question-generation", content);
 
         if (!response.IsSuccessStatusCode)
         {

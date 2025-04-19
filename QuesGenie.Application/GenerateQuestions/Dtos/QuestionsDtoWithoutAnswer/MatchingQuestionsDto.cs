@@ -12,6 +12,7 @@ public class MatchingQuestionsDto
     public string QuestionId { get; set; } = default!;
     public string DocumentId { get; set; } = default!;
     public string PageRange { get; set; } = default!;
+    public string Context { get; set; } = default!;
     public List<string> LeftPairs { get; set; }
     public List<string> RightPairs { get; set; } 
 }

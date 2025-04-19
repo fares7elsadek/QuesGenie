@@ -4,5 +4,6 @@ public class GenerateQuestionsFillTheBlankDto
 {
     public string questionText { get; set; } = default!;
     public string pageRange { get; set; } = default!;
+    public string context { get; set; } = default!;
     public string answerText { get; set; } = default!;
 }

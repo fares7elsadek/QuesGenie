@@ -8,5 +8,6 @@ public class GenerateQuestionMcqQuestionsDto
     }
     public string questionText { get; set; } = default!;
     public string pageRange { get; set; } = default!;
+    public string context { get; set; } = default!;
     public List<GenerateQuestionsMcqOptionsDto> mcqOptions { get; set; } 
 }

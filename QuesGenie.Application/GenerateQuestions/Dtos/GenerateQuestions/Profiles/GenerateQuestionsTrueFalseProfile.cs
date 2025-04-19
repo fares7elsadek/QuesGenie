@@ -18,6 +18,9 @@ public class GenerateQuestionsTrueFalseProfile:Profile
             }).ForMember(x => x.answer, opt =>
             {
                 opt.MapFrom(x => x.Answer);
+            }).ForMember(x => x.context, opt =>
+            {
+                opt.MapFrom(x => x.Context);
             }).ReverseMap();
     }
 }

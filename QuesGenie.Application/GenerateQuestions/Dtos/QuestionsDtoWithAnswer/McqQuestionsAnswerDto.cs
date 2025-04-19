@@ -10,5 +10,6 @@ public class McqQuestionsAnswerDto
     public string QuestionText { get; set; } = default!;
     public string DocumentId { get; set; } = default!;
     public string PageRange { get; set; } = default!;
+    public string Context { get; set; } = default!;
     public ICollection<McqOptionsAnswerDto> McqOptions { get; set; }
 }

@@ -13,6 +13,7 @@ public abstract class Questions
     public QuestionsSets QuestionSet { get; set; } = default!;
     public string QuestionText { get; set; } = default!;
     public DateTime CreatedAt { get; set; }
+    public string? Context { get; set; }
     public string DocumentId { get; set; } = default!;
     public Documents Document { get; set; } = default!;
     public string? PageRange { get; set; } = default!;

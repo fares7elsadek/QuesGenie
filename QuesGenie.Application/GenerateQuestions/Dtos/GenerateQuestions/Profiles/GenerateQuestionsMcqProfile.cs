@@ -18,6 +18,9 @@ public class GenerateQuestionsMcqProfile:Profile
             }).ForMember(x => x.pageRange, opt =>
             {
                 opt.MapFrom(x => x.PageRange);
+            }).ForMember(x => x.context, opt =>
+            {
+                opt.MapFrom(x => x.Context);
             }).ReverseMap();
     }
 }

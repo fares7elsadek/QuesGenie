@@ -14,7 +14,8 @@ public class QuestionsConfigurations:IEntityTypeConfiguration<Questions>
             .HasDefaultValueSql("gen_random_uuid()");
 
         builder.Property(x => x.QuestionText)
-            .HasColumnType("text");
+            .HasColumnType("text")
+            .HasDefaultValue("match the following");
 
         builder.Property(x => x.CreatedAt)
             .HasDefaultValueSql("now()");

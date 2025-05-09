@@ -17,7 +17,7 @@ public class GenerateQuestionsFillTheBlankProfile: Profile
                 opt.MapFrom(x => x.QuestionText);
             }).ForMember(x => x.answerText, opt =>
             {
-                opt.MapFrom(x => x.QuestionText);
+                opt.MapFrom(x => x.AnswerText);
             }).ForMember(x => x.context, opt =>
             {
                 opt.MapFrom(x => x.Context);

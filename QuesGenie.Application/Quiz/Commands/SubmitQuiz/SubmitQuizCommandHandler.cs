@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using System.Text.RegularExpressions;
+using AutoMapper;
+using MediatR;
 using QuesGenie.Application.Quiz.Dtos;
 using QuesGenie.Domain.Entities;
 using QuesGenie.Domain.Enums;
@@ -7,7 +9,7 @@ using QuesGenie.Domain.Repositories;
 
 namespace QuesGenie.Application.Quiz.Commands.SubmitQuiz;
 
-public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
+public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork,IMapper mapper)
     :IRequestHandler<SubmitQuizCommand,SubmitQuizResponseDto>
 {
     public async Task<SubmitQuizResponseDto> Handle(SubmitQuizCommand request, CancellationToken cancellationToken)
@@ -62,12 +64,29 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
         quiz.Score = finalScore;
         unitOfWork.Quizzes.Update(quiz);
         await unitOfWork.SaveAsync();
-        
-        // return SubmitQuizAnswerDto with the result to the user
 
         var response = new SubmitQuizResponseDto();
         response.Score = finalScore;
         response.QuizId = quiz.QuizId;
+        response.QuizResponses = responses.Select(r =>
+        {
+            var dto = mapper.Map<QuizResponseDto>(r);
+            if (r.Question is McqQuestions mcqQuestion)
+            {
+                dto.McqQuestion = mapper.Map<SubmitMcqQuestionQuizDto>(mcqQuestion);
+            }else if (r.Question is TrueFalseQuestions trueFalseQuestion)
+            {
+                dto.TrueFalseQuestion = mapper.Map<SubmitTrueFalseQuestionDto>(trueFalseQuestion);
+            }else if (r.Question is FillTheBlankQuestions fillTheBlankQuestion)
+            {
+                dto.FillTheBlankQuiz = mapper.Map<SubmitFillTheBlankQuizDto>(fillTheBlankQuestion);
+            }else if (r.Question is MatchingQuestions matchingQuestion)
+            {
+                dto.MatchingQuestion = mapper.Map<SubmitMatchingQuestionDto>(matchingQuestion);
+            }
+            return dto;
+        }).ToList();
+
         return response;
     }
 
@@ -78,23 +97,27 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
         {
             var questionId = userAnswer.QuestionId;
             var optionId = userAnswer.OptionId;
-            var quizResponse = new QuizResponses
-            {
-                QuizId = quiz.QuizId,
-            };
+            
             
             var question= mcqQuestions.FirstOrDefault(x => x.QuestionId
                                                            == questionId);
             if(question is null)
                 throw new NotFoundException(nameof(question), questionId);
             
-            quizResponse.QuestionId = question.QuestionId;
+           
             
             var option =  question.McqOptions.FirstOrDefault(x => x.OptionId == optionId);
             if(option is null)
                 throw new NotFoundException(nameof(option), optionId);
 
-            quizResponse.UserAnswer = option.OptionText;
+            var quizResponse = new QuizResponses
+            {
+                QuizId = quiz.QuizId,
+                QuestionId = question.QuestionId,
+                Question = question,  
+                UserAnswer = option.OptionText,
+                IsCorrectAnswer = option.IsCorrectAnswer
+            };
 
             if (option.IsCorrectAnswer)
             {
@@ -116,17 +139,20 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
         {
             var questionId = userAnswer.QuestionId;
             var answer = userAnswer.Answer;
-            var quizResponse = new QuizResponses
-            {
-                QuizId = quiz.QuizId,
-            };
+            
             
             var question= fillTheBlankQuestions.FirstOrDefault(x => x.QuestionId == questionId);
             if(question is null)
                 throw new NotFoundException(nameof(question), questionId);
             
-            quizResponse.QuestionId = question.QuestionId;
-            quizResponse.UserAnswer = answer;
+            
+            var quizResponse = new QuizResponses
+            {
+                QuizId = quiz.QuizId,
+                QuestionId = question.QuestionId,
+                Question = question, 
+                UserAnswer = answer,
+            };
 
             if (string.Equals(question.AnswerText.ToLower(), answer.ToLower(), StringComparison.OrdinalIgnoreCase))
             {
@@ -148,18 +174,23 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
         {
             var questionId = userAnswer.QuestionId;
             var isCorrect = userAnswer.TrueFalse;
-            var quizResponse = new QuizResponses
-            {
-                QuizId = quiz.QuizId,
-            };
+            
             
             var question= trueFalseQuestions.FirstOrDefault(x => x.QuestionId == questionId);
             if(question is null)
                 throw new NotFoundException(nameof(question), questionId);
             
-            quizResponse.QuestionId = question.QuestionId;
-            quizResponse.UserAnswer = isCorrect.ToString();
-
+           
+            
+            
+            var quizResponse = new QuizResponses
+            {
+                QuizId = quiz.QuizId,
+                QuestionId = question.QuestionId,
+                Question = question,  
+                UserAnswer = isCorrect.ToString(),
+            };
+            
             if (question.Answer == isCorrect)
             {
                 quizResponse.IsCorrectAnswer = true;
@@ -179,16 +210,13 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
         foreach (var userAnswer in MatchingQuizAnswers)
         {
             var questionId = userAnswer.QuestionId;
-            var quizResponse = new QuizResponses
-            {
-                QuizId = quiz.QuizId,
-            };
+           
             
             var question= matchingQuestions.FirstOrDefault(x => x.QuestionId == questionId);
             if(question is null)
                 throw new NotFoundException(nameof(question), questionId);
             
-            quizResponse.QuestionId = question.QuestionId;
+            
             var totalAnswerPairs = userAnswer.MatchingPairsQuiz.Count();
             int correctAnswers = 0;
             
@@ -204,8 +232,14 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork)
                     correctAnswers += 1;
                 }
             }
-            quizResponse.IsCorrectAnswer = correctAnswers == totalAnswerPairs;
-            quizResponse.UserAnswer = "Matching question";
+            var quizResponse = new QuizResponses
+            {
+                QuizId = quiz.QuizId,
+                QuestionId = question.QuestionId,
+                Question = question,  
+                UserAnswer = "Matching question",
+                IsCorrectAnswer = correctAnswers == totalAnswerPairs
+            };
             responses.Add(quizResponse);
         }
     }

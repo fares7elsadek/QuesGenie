@@ -23,6 +23,9 @@ public class QuestionsConfigurations:IEntityTypeConfiguration<Questions>
         builder.Property(x => x.PageRange)
             .HasColumnType("varchar(100)");
 
+        builder.Property(x => x.Evaluated)
+            .HasDefaultValue(false);
+
         builder.UseTpcMappingStrategy();
         
         builder.HasMany(x => x.QuizResponses)

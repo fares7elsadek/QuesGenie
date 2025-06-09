@@ -16,6 +16,7 @@ public interface IUnitOfWork
     IMcqQuestionsRepository McqQuestions { get; }
     IFillTheBlankQuestionsRepsitory FillTheBlankQuestions { get; }
     ITrueFalseRepository TrueFalse { get; }
+    IQuestionsRepository Questions { get; }
     Task SaveAsync();
     public IDbTransaction BeginTransaction();
 }

@@ -21,6 +21,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
     public DbSet<Quizzes> Quizzes { get; set; }
     public DbSet<QuizResponses> QuizResponses { get; set; }
     public DbSet<QuestionsSets> QuestionsSets { get; set; }
+    public DbSet<Questions> Questions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

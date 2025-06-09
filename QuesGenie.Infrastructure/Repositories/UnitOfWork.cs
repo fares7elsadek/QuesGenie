@@ -19,6 +19,7 @@ public class UnitOfWork:IUnitOfWork
     public IMatchingQuestionsRepository MatchingQuestions { get; }
     public IMcqQuestionsRepository McqQuestions { get; }
     public IFillTheBlankQuestionsRepsitory FillTheBlankQuestions { get; }
+    public IQuestionsRepository Questions { get; }
     public ITrueFalseRepository TrueFalse { get; }
     private readonly AppDbContext _db;
     
@@ -37,6 +38,7 @@ public class UnitOfWork:IUnitOfWork
         Quizzes = new QuizzesRepository(_db);
         QuizResponses = new QuizResponsesRepository(_db);
         Submission = new SubmissionRepository(_db);
+        Questions = new QuestionsRepository(_db);
     }
 
 

@@ -8,9 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuesGenie/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="938bc01e-cac2-4a0d-a646-fa2d9d0b355a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,10 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -110,6 +108,7 @@
       <workItem from="1744805936362" duration="1218000" />
       <workItem from="1744831854548" duration="3583000" />
       <workItem from="1745066353018" duration="9720000" />
+      <workItem from="1746794200330" duration="16624000" />
     </task>
     <servers />
   </component>

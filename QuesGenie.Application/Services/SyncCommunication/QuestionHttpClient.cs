@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using QuesGenie.Application.GenerateQuestions.Dtos;
 using QuesGenie.Application.GenerateQuestions.Dtos.GenerateQuestions;
 using QuesGenie.Application.GenerateQuestions.QuestionsDtoWithAnswer;
@@ -12,7 +13,7 @@ using QuesGenie.Domain.Repositories;
 namespace QuesGenie.Application.Services.SyncCommunication;
 
 public class QuestionHttpClient(HttpClient httpClient,IUnitOfWork unitOfWork,
-    IMapper mapper):IQuestionHttpClient
+    IMapper mapper,IConfiguration configuration):IQuestionHttpClient
 {
     public async Task GenerateQuestion(QuestionRequestDto dto)
     {
@@ -24,8 +25,8 @@ public class QuestionHttpClient(HttpClient httpClient,IUnitOfWork unitOfWork,
     private async Task<GenerateQuestionsDto> FetchGeneratedQuestionsAsync(QuestionRequestDto dto)
     {
         var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync("http://20.151.232.233/question-generation", content);
-
+        var response = await httpClient.PostAsync($"{configuration["PythonServiceUrl"]}/question-generation", content);
+        
         if (!response.IsSuccessStatusCode)
         {
             var error = await response.Content.ReadAsStringAsync();

@@ -47,7 +47,7 @@ public static class ServiceCollectionExtenstions
         services.AddScoped<IPdfService, PdfService>();
         services.AddHttpClient<IQuestionHttpClient, QuestionHttpClient>(client =>
         {
-            client.Timeout = TimeSpan.FromMinutes(10);
+            client.Timeout = TimeSpan.FromMinutes(30);
         });
         
     }

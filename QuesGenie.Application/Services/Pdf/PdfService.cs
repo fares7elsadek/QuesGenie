@@ -11,12 +11,11 @@ public class PdfService : IPdfService
     public byte[] GenerateQuestionsPdf(GetQuestionsBySubmissionIdWithAnswerDto dto)
     {
         Settings.License = LicenseType.Community;
+        Settings.EnableDebugging = true; // Enable this only for debugging layout issues
 
-        // Load logo
         string logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "logo.png");
         byte[] logoBytes = File.Exists(logoPath) ? File.ReadAllBytes(logoPath) : null;
 
-        // Define color scheme
         var primaryColor = Colors.Blue.Darken3;
         var secondaryColor = Colors.Grey.Darken1;
         var correctColor = Colors.Green.Darken1;
@@ -31,12 +30,9 @@ public class PdfService : IPdfService
                 page.Size(PageSizes.A4);
                 page.Margin(30);
                 page.DefaultTextStyle(x => x.FontSize(11).FontFamily(Fonts.Calibri));
-                
-                
-                // Simplified Header
+
                 page.Header().Padding(5).BorderBottom(1).BorderColor(primaryColor).Row(row =>
                 {
-                    
                     if (logoBytes != null)
                     {
                         row.ConstantItem(60).ShowOnce().Image(logoBytes).FitWidth();
@@ -54,10 +50,8 @@ public class PdfService : IPdfService
                     });
                 });
 
-                // Content
                 page.Content().PaddingVertical(20).Column(content =>
                 {
-                    // Sample Questions
                     if (!string.IsNullOrEmpty(dto.SampleQuestions))
                     {
                         content.Item().PaddingTop(15).Column(col =>
@@ -67,13 +61,13 @@ public class PdfService : IPdfService
                                 .Bold()
                                 .FontColor(primaryColor);
                             col.Item().Text(dto.SampleQuestions)
-                                .FontColor(secondaryColor);
+                                .FontColor(secondaryColor)
+                                .WrapAnywhere();
                         });
                     }
 
                     foreach (var questionSet in dto.QuestionSets)
                     {
-                        // MCQ Section
                         if (questionSet.McqQuestions.Any())
                         {
                             content.Item().PaddingTop(15).Column(section =>
@@ -92,7 +86,8 @@ public class PdfService : IPdfService
                                         {
                                             q.Item().Text(mcq.QuestionText)
                                                 .Bold()
-                                                .FontColor(secondaryColor);
+                                                .FontColor(secondaryColor)
+                                                .WrapAnywhere();
 
                                             q.Item().PaddingTop(5).Column(options =>
                                             {
@@ -101,11 +96,13 @@ public class PdfService : IPdfService
                                                     var letter = (char)('A' + index);
                                                     options.Item().Row(row =>
                                                     {
-                                                        row.AutoItem().Text($"{letter}. {option.OptionText}")
-                                                            .FontColor(secondaryColor);
+                                                        row.RelativeItem().Text($"{letter}. {option.OptionText}")
+                                                            .FontColor(secondaryColor)
+                                                            .WrapAnywhere();
+
                                                         if (option.IsCorrectAnswer)
                                                         {
-                                                            row.ConstantItem(60).AlignRight().Text("✓ Correct")
+                                                            row.AutoItem().AlignRight().Text("✓ Correct")
                                                                 .FontColor(correctColor)
                                                                 .FontSize(9);
                                                         }
@@ -117,7 +114,6 @@ public class PdfService : IPdfService
                             });
                         }
 
-                        // Fill in the Blank
                         if (questionSet.FillTheBlanks.Any())
                         {
                             content.Item().PaddingTop(15).Column(section =>
@@ -136,17 +132,18 @@ public class PdfService : IPdfService
                                         {
                                             var textParts = blank.QuestionText.Split(new[] { "{blank}" }, StringSplitOptions.None);
                                             q.Item().Text(textParts[0])
-                                                .FontColor(secondaryColor);
-                                            
+                                                .FontColor(secondaryColor)
+                                                .WrapAnywhere();
+
                                             q.Item().Text($"Answer: {blank.AnswerText}")
                                                 .FontColor(correctColor)
-                                                .Italic();
+                                                .Italic()
+                                                .WrapAnywhere();
                                         });
                                 }
                             });
                         }
 
-                        // Matching Questions
                         if (questionSet.MatchingQuestions.Any())
                         {
                             content.Item().PaddingTop(15).Column(section =>
@@ -163,7 +160,6 @@ public class PdfService : IPdfService
                                         .PaddingVertical(10)
                                         .Column(q =>
                                         {
-                                            
                                             q.Item().Grid(grid =>
                                             {
                                                 grid.Columns(2);
@@ -173,12 +169,14 @@ public class PdfService : IPdfService
                                                 foreach (var pair in match.MatchingPairs)
                                                 {
                                                     grid.Item().Text(pair.LeftSide)
-                                                        .FontColor(secondaryColor);
+                                                        .FontColor(secondaryColor)
+                                                        .WrapAnywhere();
                                                     grid.Item().Background(Colors.Grey.Lighten3)
                                                         .Padding(5)
                                                         .Text(pair.RightSide)
                                                         .FontColor(primaryColor)
-                                                        .AlignRight();
+                                                        .AlignRight()
+                                                        .WrapAnywhere();
                                                 }
                                             });
                                         });
@@ -186,7 +184,6 @@ public class PdfService : IPdfService
                             });
                         }
 
-                        // True/False Questions
                         if (questionSet.TrueFalseQuestions.Any())
                         {
                             content.Item().PaddingTop(15).Column(section =>
@@ -204,11 +201,11 @@ public class PdfService : IPdfService
                                         .Column(q =>
                                         {
                                             q.Item().Text(tf.QuestionText)
-                                                .FontColor(secondaryColor);
+                                                .FontColor(secondaryColor)
+                                                .WrapAnywhere();
                                             q.Item().PaddingTop(5)
                                                 .Background(tf.Answer ? correctBackground : incorrectBackground)
                                                 .Padding(5)
-                                                .Width(80)
                                                 .AlignCenter()
                                                 .Text(tf.Answer ? "✓ True" : "✗ False")
                                                 .FontColor(tf.Answer ? correctColor : incorrectColor)
@@ -220,7 +217,6 @@ public class PdfService : IPdfService
                     }
                 });
 
-                // Modern Footer
                 page.Footer().BorderTop(1)
                     .BorderColor(Colors.Grey.Lighten2)
                     .PaddingTop(5)

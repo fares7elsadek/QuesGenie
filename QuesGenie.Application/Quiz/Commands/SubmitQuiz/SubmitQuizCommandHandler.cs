@@ -210,19 +210,19 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork,IMapper mapper)
         foreach (var userAnswer in MatchingQuizAnswers)
         {
             var questionId = userAnswer.QuestionId;
-           
-            
-            var question= matchingQuestions.FirstOrDefault(x => x.QuestionId == questionId);
-            if(question is null)
+
+            var question = matchingQuestions.FirstOrDefault(x => x.QuestionId == questionId);
+            if (question is null)
                 throw new NotFoundException(nameof(question), questionId);
-            
-            
-            var totalAnswerPairs = userAnswer.MatchingPairsQuiz.Count();
+
+            var totalAnswerPairs = userAnswer.MatchingPairsQuiz.Count;
             int correctAnswers = 0;
-            
-            var matchingPairsDict = question.MatchingPairs.ToDictionary( p => p.LeftSide,
-                p => p.RightSide);
-            
+
+            // ✅ Safe from duplicate key exception
+            var matchingPairsDict = question.MatchingPairs
+                .GroupBy(p => p.LeftSide)
+                .ToDictionary(g => g.Key, g => g.First().RightSide);
+
             foreach (var answerPair in userAnswer.MatchingPairsQuiz)
             {
                 if (matchingPairsDict.TryGetValue(answerPair.LeftSide, out var correctRightSide) &&
@@ -232,14 +232,16 @@ public class SubmitQuizCommandHandler(IUnitOfWork unitOfWork,IMapper mapper)
                     correctAnswers += 1;
                 }
             }
+
             var quizResponse = new QuizResponses
             {
                 QuizId = quiz.QuizId,
                 QuestionId = question.QuestionId,
-                Question = question,  
+                Question = question,
                 UserAnswer = "Matching question",
                 IsCorrectAnswer = correctAnswers == totalAnswerPairs
             };
+
             responses.Add(quizResponse);
         }
     }

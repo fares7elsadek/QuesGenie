@@ -16,10 +16,10 @@ public class SubmitDocumentCommandValidator:AbstractValidator<SubmitDocumentComm
         RuleForEach(x => x.SubmissionDocuments).ChildRules(docs =>
         {
             // DocumentType must be valid
-            docs.RuleFor(d => d.DocumentType)
-                .NotEmpty().WithMessage("Document type is required.")
-                .Must(type => AllowedDocumentTypes.Contains(type))
-                .WithMessage($"Invalid document type. Allowed types: {string.Join(", ", AllowedDocumentTypes)}");
+            //docs.RuleFor(d => d.DocumentType)
+                //.NotEmpty().WithMessage("Document type is required.")
+               // .Must(type => AllowedDocumentTypes.Contains(type))
+               // .WithMessage($"Invalid document type. Allowed types: {string.Join(", ", AllowedDocumentTypes)}");
             
             // File must not be null, valid extension, and within size limit
             docs.RuleFor(d => d.File)

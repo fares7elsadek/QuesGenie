@@ -118,6 +118,7 @@
       <workItem from="1750895125117" duration="88000" />
       <workItem from="1750952125074" duration="1090000" />
       <workItem from="1751155502271" duration="2166000" />
+      <workItem from="1751319518502" duration="969000" />
     </task>
     <servers />
   </component>
@@ -138,5 +139,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/QuesGenie.Application/GenerateQuestions/Commands/SubmitDocuments/SubmitDocumentCommandHandler.cs</url>
+          <line>15</line>
+          <properties documentPath="C:\Users\fares\RiderProjects\QuesGenie\QuesGenie.Application\GenerateQuestions\Commands\SubmitDocuments\SubmitDocumentCommandHandler.cs" containingFunctionPresentation="Method 'Handle'">
+            <startOffsets>
+              <option value="697" />
+            </startOffsets>
+            <endOffsets>
+              <option value="698" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

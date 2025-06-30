@@ -60,7 +60,7 @@ public class SubmitDocumentCommandHandler(IFileService fileService,
         "pdf" => DocumentType.PDF,
         "text" => DocumentType.TEXT,
         "ppt" => DocumentType.POWER_POINT,
-        "audio" => DocumentType.AUDIO,
+        "mp3" => DocumentType.MP3,
         _ => throw new ArgumentException("Invalid document type")
     };
 }

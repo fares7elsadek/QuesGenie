@@ -4,6 +4,6 @@ public enum DocumentType
 {
     PDF,
     POWER_POINT,
-    AUDIO,
+    MP3,
     TEXT
 }
